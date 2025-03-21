@@ -1,6 +1,7 @@
 import random
-# Preguntas para el juego
+puntaje = 0
 
+# Preguntas para el juego
 questions = [
     "¿Qué función se usa para obtener la longitud de una cadena en Python?",
     "¿Cuál de las siguientes opciones es un número entero en Python?",
@@ -45,11 +46,14 @@ for _ in range(3):
         if user_answer < "1" or user_answer > "4":
             print ("Respuesta no valida")
             exit(1)
-
-# Se verifica si la respuesta es correcta
-        if int(user_answer)-1 == correct_answers_index[question_index]:
+       
+# Se verifica si la respuesta es correcta y suma o resta puntos
+        if int(user_answer) - 1 == correct_answers_index[question_index]:
             print("¡Correcto!")
+            puntaje += 1
             break
+        else:
+            puntaje -= 0.5
     else:
 
         # Si el usuario no responde correctamente después de 2 intentos,
@@ -59,6 +63,5 @@ for _ in range(3):
 
 # Se imprime un blanco al final de la pregunta
     print()
-    
 
-
+print (f'Usted hizo {puntaje} puntos')
