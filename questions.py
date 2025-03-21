@@ -9,8 +9,8 @@ questions = [
     "¿Cuál de las siguientes expresiones es un comentario válido en Python?",
     "¿Cuál es el operador de comparación para verificar si dos valores son iguales?"
 ]
-
-# Respuestas posibles para cada pregunta, en el mismo orden que las preguntas
+# Respuestas posibles para cada pregunta, en el mismo orden
+#que las preguntas
 answers = [
     ("size()", "len()", "length()", "count()"),
     ("3.14", "'42'", "10", "True"),
@@ -23,13 +23,13 @@ answers = [
     ),
     ("=", "==", "!=", "==="),
 ]
-
-# Índice de la respuesta correcta para cada pregunta, en el mismo orden que las preguntas
+# Índice de la respuesta correcta para cada pregunta, el el
+#mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 
 # Se selecciona el conjunto de preguntas y respuestas aleatorias (3 max)
-# Pueden repetirse
-questions_to_ask = random.choices(list(zip(questions, answers, correct_answers_index)), k=3)
+# No pueden repetirse
+questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_index)), k=3)
 
 # El usuario deberá contestar 3 preguntas
 for quest, ans, correct_answer in questions_to_ask:
@@ -48,9 +48,9 @@ for quest, ans, correct_answer in questions_to_ask:
         #Si la respuesta no es valida, se termina el programa
         if user_answer < "1" or user_answer > "4":
             print ("Respuesta no valida")
-            exit(1)        
+            exit(1) 
 
-# Se verifica si la respuesta es correcta y suma o resta puntos
+# Se verifica si la respuesta es correcta
         if int(user_answer)-1 == correct_answer:
             print("¡Correcto!")
             puntaje += 1
